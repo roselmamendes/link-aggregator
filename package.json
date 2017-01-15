@@ -9,9 +9,9 @@
     "build": "webpack",
     "build-image": "docker build -t link-agg .",
     "start-container": "docker run --name link-agg -p 3000:3000 -t link-agg npm run start",
-    "start-service": "run-s build-image start-container",
+    "start-service": "npm run build-image && npm run start-container",
     "stop-service": "docker stop link-agg && docker rm link-agg",
-    "restart-service": "run-s stop-service start-service",
+    "restart-service": "npm run stop-service && npm run start-service",
     "console": "docker run -it link-agg /bin/bash",
     "test": "echo \"Error: no test specified\" && exit 1"
   },

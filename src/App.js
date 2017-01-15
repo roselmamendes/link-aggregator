@@ -7,7 +7,7 @@ class App extends Component {
   render() {
     return (
       <MuiThemeProvider>
-        <List style="width: 600px;">
+        <List>
           <ListItem>
             <RenderLink></RenderLink>
           </ListItem>
