@@ -13,10 +13,18 @@
     "stop-service": "docker stop link-agg && docker rm link-agg",
     "restart-service": "npm run stop-service && npm run start-service",
     "console": "docker run -it link-agg /bin/bash",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "npm run build-image && docker run --rm -it link-agg ./node_modules/.bin/jest"
   },
   "author": "Roselma Mendes",
   "license": "ISC",
+  "devDependencies": {
+    "babel-jest": "17.0.2",
+    "babel-polyfill": "6.20.0",
+    "jest": "18.1.0",
+    "enzyme": "2.7.0",
+    "react-addons-test-utils": "15.4",
+    "chai": "^3.5.0"
+  },
   "dependencies": {
     "express": "4.14.0",
     "react": "15.4.2",

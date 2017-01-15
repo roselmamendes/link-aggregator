@@ -3,53 +3,53 @@ import Subheader from 'material-ui/Subheader';
 import {GridList, GridTile} from 'material-ui/GridList';
 import FontIcon from 'material-ui/FontIcon';
 
-const styles = {
-  listItem: {
-    width: 400,
-    height: 400
-  },
-  gridList: {
-    display: 'flex',
-    flexWrap: 'nowrap',
-    overflowX: 'auto',
-  },
-  titleStyle: {
-    color: 'rgb(0, 188, 212)',
-  },
-};
+class Tag extends React.Component {
 
-const Tag = () => (
-  <div>
-    <Subheader>Roselma's medium</Subheader>
-    <GridList style={styles.gridList}>
+  render() {
+    const styles = {
+      listItem: {
+        width: 400,
+        height: 400
+      },
+      gridList: {
+        display: 'flex',
+        flexWrap: 'nowrap',
+        overflowX: 'auto',
+      },
+      titleStyle: {
+        color: 'rgb(0, 188, 212)',
+      },
+    };
 
-      <GridTile
-        title="Todas as pessoas deveriam saber o que é Segurança Digital"
-        titleStyle={styles.titleStyle}
-        titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-      >
-        <img src="https://cdn-images-1.medium.com/max/2000/1*YvdKF-7hYrieVNijUGxHrQ.jpeg" />
-      </GridTile>
+    const tags = this.props.links.slice(0, 3).map((link, index) => {
 
-      <GridTile
-        title="Todas as pessoas deveriam saber o que é Segurança Digital"
-        titleStyle={styles.titleStyle}
-        titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-      >
-        <img src="https://cdn-images-1.medium.com/max/2000/1*YvdKF-7hYrieVNijUGxHrQ.jpeg" />
-      </GridTile>
+        return (
+          <a key={index} href={link.url}>
+            <GridTile
+              title={link.title}
+              titleStyle={styles.titleStyle}
+              titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
+            >
+              <img src={link.image}/>
+            </GridTile>
+          </a>
+        );
 
-      <GridTile
-        title="Todas as pessoas deveriam saber o que é Segurança Digital"
-        titleStyle={styles.titleStyle}
-        titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-      >
-        <img src="https://cdn-images-1.medium.com/max/2000/1*YvdKF-7hYrieVNijUGxHrQ.jpeg" />
-      </GridTile>
+    });
 
-    </GridList>
-    <FontIcon className="material-icons">more_horiz</FontIcon>
-  </div>
-);
+    return (<div>
+      <Subheader>{this.props.titleTag}</Subheader>
+      <GridList style={styles.gridList}>
+        {tags}
+      </GridList>
+      <FontIcon className="material-icons">more_horiz</FontIcon>
+    </div>);
+  }
+}
+
+Tag.propTypes = {
+  titleTag: React.PropTypes.string.isRequired,
+  links: React.PropTypes.array.isRequired
+}
 
 export default Tag;
