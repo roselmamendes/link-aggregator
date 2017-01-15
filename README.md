@@ -9,6 +9,7 @@ The intent is create a aggregator of links which will organize the links by subj
 Requirements
 
 Docker
+
 Node
 
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
@@ -17,7 +18,9 @@ Node
 
 To stop the container run ```npm run stop-service```
 
-To open a terminal from the container ```npm run console```
+To restart the container run ```npm run restart-service```
+
+To open a terminal from th container ```npm run console```
 
 **[Board of Issues to work](https://github.com/roselmamendes/link-aggregator/projects/1)**
 
