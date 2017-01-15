@@ -1,0 +1,33 @@
+{
+  "name": "link-aggregator",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "run-s build server",
+    "server": "node app.js",
+    "build": "webpack",
+    "build-image": "docker build -t link-agg .",
+    "start-container": "docker run --name link-agg -p 3000:3000 -t link-agg npm run start",
+    "start-service": "run-s build-image start-container",
+    "stop-service": "docker stop link-agg && docker rm link-agg",
+    "restart-service": "run-s stop-service start-service",
+    "console": "docker run -it link-agg /bin/bash",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Roselma Mendes",
+  "license": "ISC",
+  "dependencies": {
+    "express": "4.14.0",
+    "react": "15.4.2",
+    "react-dom": "15.4.2",
+    "npm-run-all": "4.0.0",
+    "webpack": "1.14.0",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "babel-loader": "^6.2.4",
+    "css-loader": "^0.23.1",
+    "style-loader": "^0.13.1",
+    "material-ui": "0.16.6"
+  }
+}
