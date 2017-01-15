@@ -1,20 +1,13 @@
 import React, { Component } from 'react';
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import {List, ListItem} from 'material-ui/List';
-import RenderLink from './RenderLink';
+import Tags from './Tags';
 
 class App extends Component {
   render() {
+
     return (
       <MuiThemeProvider>
-        <List>
-          <ListItem>
-            <RenderLink></RenderLink>
-          </ListItem>
-          <ListItem>
-            <RenderLink></RenderLink>
-          </ListItem>
-        </List>
+       <Tags/>
       </MuiThemeProvider>
     );
   }
