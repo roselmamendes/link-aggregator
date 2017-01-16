@@ -1,4 +1,5 @@
 # link-aggregator
+[![Build Status](https://travis-ci.org/roselmamendes/link-aggregator.svg?branch=master)](https://travis-ci.org/roselmamendes/link-aggregator)
 
 The intent is create a aggregator of links which will organize the links by subject.
 
