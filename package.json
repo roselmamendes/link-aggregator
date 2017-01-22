@@ -12,7 +12,7 @@
     "start-service": "npm run build-image && npm run start-container",
     "stop-service": "docker stop link-agg && docker rm link-agg",
     "restart-service": "npm run stop-service && npm run start-service",
-    "console": "docker run -it link-agg /bin/bash",
+    "console": "npm run build-image && docker run --rm -it link-agg /bin/bash",
     "test": "npm run build-image && docker run --rm -it link-agg ./node_modules/.bin/jest"
   },
   "author": "Roselma Mendes",
@@ -23,7 +23,8 @@
     "jest": "18.1.0",
     "enzyme": "2.7.0",
     "react-addons-test-utils": "15.4",
-    "chai": "^3.5.0"
+    "chai": "^3.5.0",
+    "sinon": "1.17.7"
   },
   "dependencies": {
     "express": "4.14.0",
@@ -36,6 +37,7 @@
     "babel-loader": "^6.2.4",
     "css-loader": "^0.23.1",
     "style-loader": "^0.13.1",
-    "material-ui": "0.16.6"
+    "material-ui": "0.16.6",
+    "metatags": "0.0.8"
   }
 }

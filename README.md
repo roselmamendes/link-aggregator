@@ -27,5 +27,5 @@ To open a terminal from th container ```npm run console```
 
 **Tests**
 
-```npm run test```
+```npm test```
 
