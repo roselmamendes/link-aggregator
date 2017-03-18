@@ -1,40 +1,42 @@
 import metatags from 'metatags';
 
-export default class {
-  read_links(links) {
-    var rendered_links = [];
+export default class Crawler{
 
-    let pages = this.get_metatags(links);
+  static build_tag_links(tags){
+    return tags.map((tag, index) => {
+      tag.links = Crawler.read_links(tag.links);
+      return tag;
+    });
+  }
 
-    pages.map((page, index) => {
-      rendered_links.push(
-        {
-          "url": page.url,
-          "image": page.otherimages[0].src,
-          "title": page.title
-        });
+  static read_links(links) {
+    return links.map((link, index) => {
+
+      var link_data = Crawler.call_metatags(link);
+
+      return {
+        "url": link_data.url,
+        "image": link_data.otherimages[0].src,
+        "title": link_data.title
+      }
+    });
+  }
+
+  static call_metatags(link){
+    var link_data;
+    metatags(link, (error, data) => {
+      if(error){
+        console.error(error);
+      }else {
+
+        link_data = data;
+
+      }
+
     });
 
-    return rendered_links;
-  }
+    return link_data;
 
-  get_metatags(links) {
-    return links.map(this.treat_data());
-  }
-
-  treat_data(page, index){
-      var page;
-
-      metatags(link, (error, data) => {
-        if(error){
-          console.error(error);
-        }
-
-        page = data;
-
-      });
-
-      return page;
   }
 
 };
