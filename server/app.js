@@ -11,6 +11,16 @@ const tags = [
     ]
   },
   {
+    'tag': 'Arquitetura',
+    'links': [
+      'https://medium.com/@priya104/onion-architecture-b285ca3a2033#.89yf48c8q',
+      'https://8thlight.com/blog/uncle-bob/2012/05/15/NODB.html',
+      'https://github.com/luanReis/clean-architecture-example',
+      'http://www.ben-morris.com/the-problem-with-tiered-or-layered-architecture/',
+      'http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html'
+    ]
+  },
+  {
     'tag': 'JS',
     'links': [
       'http://sinonjs.org/',
