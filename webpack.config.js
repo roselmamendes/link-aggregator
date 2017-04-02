@@ -23,6 +23,12 @@ var config = {
         loader: "style-loader!css-loader"
       }
     ]
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
 };
 

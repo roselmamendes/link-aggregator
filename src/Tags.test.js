@@ -15,13 +15,13 @@ it('should render a empty list of Tag component', () => {
 it('should render a list of Tag component', () => {
   const tagsList = [
     {
-      "tag": "Segurança",
+      "title": "Segurança",
       "links": [
         {"url": "https://link.com", "title": "a title", "image": "https://image.com"}
         ]
     },
     {
-      "tag": "Clean Architecture",
+      "title": "Clean Architecture",
       "links": [
         {"url": "https://link1.com", "title": "a title 1", "image": "https//image1.com"},
         {"url": "https://link2.com", "title": "a title 2", "image": "https//image2.com"}
@@ -33,10 +33,10 @@ it('should render a list of Tag component', () => {
   expect(tags.find(Tag)).to.have.length(2);
 
   const tag1 = tags.find(Tag).nodes[0];
-  expect(tag1.props.titleTag).to.equal(tagsList[0].tag);
+  expect(tag1.props.titleTag).to.equal('Segurança');
   expect(tag1.props.links).to.have.length(1);
 
   const tag2 = tags.find(Tag).nodes[1];
-  expect(tag2.props.titleTag).to.equal(tagsList[1].tag);
+  expect(tag2.props.titleTag).to.equal('Clean Architecture');
   expect(tag2.props.links).to.have.length(2);
 });

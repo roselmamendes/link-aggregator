@@ -18,7 +18,7 @@ const tags = [
   }
 ];
 
-app.use('/', express.static(path.join(__dirname, 'public')));
+app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.get('/tags-list', (req, res, next) => {
   Promise.all(Crawler.build_tag_links(tags)).then((tags) => {

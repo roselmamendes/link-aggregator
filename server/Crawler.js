@@ -8,7 +8,6 @@ export default class Crawler{
         if(error){
           reject(error);
         }else {
-          console.info(link);
           resolve(data);
         }
 
