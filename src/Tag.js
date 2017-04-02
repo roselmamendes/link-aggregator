@@ -7,17 +7,20 @@ class Tag extends React.Component {
 
   render() {
     const styles = {
-      listItem: {
-        width: 400,
-        height: 400
+      subheader: {
+        color: '#9C27B0',
+        fontSize: 30,
+        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
+      },
+      gridtile: {
+        border: '5px solid yellowgreen'
       },
       gridList: {
-        display: 'flex',
-        flexWrap: 'nowrap',
-        overflowX: 'auto',
+        overflowX: 'auto'
       },
       titleStyle: {
-        color: 'rgb(0, 188, 212)',
+        color: 'rgba(243, 249, 243, 0.95)',
+        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
       },
     };
 
@@ -26,6 +29,7 @@ class Tag extends React.Component {
         return (
           <a key={index} href={link.url}>
             <GridTile
+              style={styles.gridtile}
               title={link.title}
               titleStyle={styles.titleStyle}
               titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
@@ -38,8 +42,8 @@ class Tag extends React.Component {
     });
 
     return (<div>
-      <Subheader>{this.props.titleTag}</Subheader>
-      <GridList style={styles.gridList}>
+      <Subheader style={styles.subheader}>{this.props.titleTag}</Subheader>
+      <GridList style={styles.gridList} cols='1'>
         {tags}
       </GridList>
       <FontIcon className="material-icons">more_horiz</FontIcon>
