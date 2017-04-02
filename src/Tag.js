@@ -1,6 +1,6 @@
 import React from 'react';
 import Subheader from 'material-ui/Subheader';
-import {GridList, GridTile} from 'material-ui/GridList';
+import {List, ListItem} from 'material-ui/List';
 import FontIcon from 'material-ui/FontIcon';
 
 class Tag extends React.Component {
@@ -12,30 +12,20 @@ class Tag extends React.Component {
         fontSize: 30,
         fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
       },
-      gridtile: {
-        border: '5px solid yellowgreen'
-      },
-      gridList: {
-        overflowX: 'auto'
-      },
       titleStyle: {
         color: 'rgba(243, 249, 243, 0.95)',
         fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
       },
+      listitem: {
+        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
+      }
     };
 
     const tags = this.props.links.slice(0, 3).map((link, index) => {
 
         return (
           <a key={index} href={link.url}>
-            <GridTile
-              style={styles.gridtile}
-              title={link.title}
-              titleStyle={styles.titleStyle}
-              titleBackground="linear-gradient(to top, rgba(0,0,0,0.7) 0%,rgba(0,0,0,0.3) 70%,rgba(0,0,0,0) 100%)"
-            >
-              <img src={link.image ? link.image : 'http-image.png'}/>
-            </GridTile>
+            <ListItem style={styles.listitem} primaryText={link.title}/>
           </a>
         );
 
@@ -43,9 +33,9 @@ class Tag extends React.Component {
 
     return (<div>
       <Subheader style={styles.subheader}>{this.props.titleTag}</Subheader>
-      <GridList style={styles.gridList} cols='1'>
+      <List>
         {tags}
-      </GridList>
+      </List>
       <FontIcon className="material-icons">more_horiz</FontIcon>
     </div>);
   }

@@ -40,3 +40,15 @@ it('should render a list of Tag component', () => {
   expect(tag2.props.titleTag).to.equal('Clean Architecture');
   expect(tag2.props.links).to.have.length(2);
 });
+
+it('should have a Criar Tag button', () => {
+  const tags_comp = shallow(<Tags tagsList={[]}/>);
+
+  expect(tags_comp.find('RaisedButton').nodes[0].props.label).to.equal('Criar Tag');
+});
+
+it('should have a Adicionar link button', () => {
+  const tags_comp = shallow(<Tags tagsList={[]}/>);
+
+  expect(tags_comp.find('RaisedButton').nodes[1].props.label).to.equal('Adicionar link');
+});
