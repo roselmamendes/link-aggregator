@@ -30,6 +30,9 @@ export default class Crawler{
   }
 
   static build_tag_links(tags){
+
+    console.log('[Server] Receiving links metadata');
+
     return tags.map(Crawler.promise_build_tag_links);
   }
 
