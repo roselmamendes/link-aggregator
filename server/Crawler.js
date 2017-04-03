@@ -23,7 +23,7 @@ export default class Crawler{
         tag.links = links_data;
         resolve(tag);
       }).catch(error => {
-        throw error;
+        reject(error);
       });
 
     });

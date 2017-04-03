@@ -3,7 +3,7 @@ import path from 'path';
 let app = express();
 import Crawler from './Crawler';
 
-const tags = [
+const tags_db = [
   {
     'tag': 'Segurança',
     'links': [
@@ -33,8 +33,8 @@ const tags = [
 app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.get('/tags-list', (req, res, next) => {
-  Promise.all(Crawler.build_tag_links(tags)).then((tags) => {
-
+  var tags_to_treat =JSON.parse(JSON.stringify(tags_db));;
+  Promise.all(Crawler.build_tag_links(tags_to_treat)).then((tags) => {
     var tags_json = tags.map((tag) => {
       return {
         'title': tag.tag,
