@@ -2,6 +2,7 @@ import React from 'react';
 import Subheader from 'material-ui/Subheader';
 import {List, ListItem} from 'material-ui/List';
 import FontIcon from 'material-ui/FontIcon';
+import {Card, CardMedia, CardTitle} from 'material-ui/Card';
 
 class Tag extends React.Component {
 
@@ -18,24 +19,37 @@ class Tag extends React.Component {
       },
       listitem: {
         fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
+      },
+      card:{
+        marginBottom: 20
+      },
+      img: {
+        width: 250,
+        height: 300
       }
     };
 
-    const tags = this.props.links.slice(0, 3).map((link, index) => {
-
-        return (
-          <a key={index} href={link.url}>
-            <ListItem style={styles.listitem} primaryText={link.title}/>
-          </a>
-        );
-
+    const tagsCard = this.props.links.slice(0, 3).map((link, index) => {
+      var imgsrc = 'https://developers.google.com/web/images/content-https-2x.jpg';
+      if(link.image){
+        imgsrc = link.image;
+      }
+      return (
+        <Card key={index} style={styles.card}>
+          <a href={link.url}><CardMedia
+            overlay={<CardTitle title={link.title}/>}
+          >
+            <img style={styles.img} src={imgsrc}/>
+          </CardMedia></a>
+        </Card>
+      );
     });
 
     return (<div>
       <Subheader style={styles.subheader}>{this.props.titleTag}</Subheader>
-      <List>
-        {tags}
-      </List>
+
+      {tagsCard}
+
       <FontIcon className="material-icons">more_horiz</FontIcon>
     </div>);
   }

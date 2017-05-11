@@ -17,7 +17,8 @@ const tags_db = [
       'https://8thlight.com/blog/uncle-bob/2012/05/15/NODB.html',
       'https://github.com/luanReis/clean-architecture-example',
       'http://www.ben-morris.com/the-problem-with-tiered-or-layered-architecture/',
-      'http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html'
+      'http://blog.cleancoder.com/uncle-bob/2017/03/03/TDD-Harms-Architecture.html',
+      'https://medium.com/@_rchaves_/building-microfrontends-part-ii-joining-apps-together-dfa1b6f17d3e'
     ]
   },
   {
@@ -26,6 +27,20 @@ const tags_db = [
       'http://sinonjs.org/',
       'https://medium.com/@vrathore/web-assembly-a-gentle-introduction-49a959a3201a',
       'https://pouchdb.com/2015/05/18/we-have-a-problem-with-promises.html'
+    ]
+  },
+  {
+    'tag': 'Delivery',
+    'links': [
+      'https://leankit.com/learn/kanban/what-is-value-stream-mapping/',
+      'https://medium.com/@goforcd/tracing-our-path-to-production-mingles-journey-using-gocd-31ce8d919556'
+    ]
+  },
+  {
+    'tag': 'Cloud',
+    'links': [
+      'https://www.thoughtworks.com/insights/blog/lost-promise-cloud?utm_campaign=shareaholic&utm_medium=twitter&utm_source=socialnetwork',
+      'https://medium.com/capital-one-developers/serverless-is-the-paas-i-always-wanted-9e9c7d925539'
     ]
   }
 ];
