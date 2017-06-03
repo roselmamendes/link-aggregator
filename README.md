@@ -13,7 +13,7 @@ Docker
 
 Node
 
-** Start in your machine **
+**Start in your machine**
 
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
 2. ```npm install npm-run-all```
