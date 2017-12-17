@@ -4,7 +4,7 @@ export default class Crawler{
 
   static promise_read_links(link){
     return new Promise((resolve, reject) => {
-      metafetch.fetch(link, {}, (error, data) => {
+      metafetch.fetch(link, (error, data) => {
         if(error){
           reject(error);
         }else {
