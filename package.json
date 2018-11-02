@@ -9,11 +9,9 @@
     "build": "webpack",
     "build-image": "docker build -t link-agg .",
     "start-container": "docker run --name link-agg -p 3000:3000 -t link-agg npm run start",
-    "start-service": "npm run build-image && npm run start-container",
     "stop-service": "docker stop link-agg && docker rm link-agg",
-    "restart-service": "npm run stop-service && npm run start-service",
     "console": "npm run build-image && docker run --rm -it link-agg /bin/bash",
-    "test": "npm run build-image && docker run --rm -it link-agg ./node_modules/.bin/jest"
+    "test": "docker run --rm -it link-agg ./node_modules/.bin/jest"
   },
   "author": "Roselma Mendes",
   "license": "ISC",
@@ -40,6 +38,6 @@
     "style-loader": "^0.13.1",
     "material-ui": "0.16.6",
     "metafetch": "1.6.1",
-    "superagent": "3.5.2"
+    "superagent": ">=3.7.0"
   }
 }

@@ -16,18 +16,15 @@ Node
 **Start in your machine**
 
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
-2. ```npm install npm-run-all```
-2. Run ```npm run start-service```
+2. Run `docker build -t link-agg .`
 
-To stop the container run ```npm run stop-service```
+To stop the container run `docker stop link-agg && docker rm link-agg`
 
-To restart the container run ```npm run restart-service```
-
-To open a terminal from th container ```npm run console```
+To open a terminal from th container `docker run --rm -it link-agg /bin/bash`
 
 **[Board of Issues to work](https://github.com/roselmamendes/link-aggregator/projects/1)**
 
 **Tests**
 
-```npm test```
+`docker run --rm -it link-agg ./node_modules/.bin/jest`
 
