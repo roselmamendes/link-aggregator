@@ -28,5 +28,5 @@ To open a terminal from th container `docker run --rm -it link-agg /bin/bash`
 
 **Tests**
 
-`docker run --rm -it link-agg ./node_modules/.bin/jest`
+`docker run --rm -v ${PWD}:/usr/src/app -it link-agg ./node_modules/.bin/jest`
 

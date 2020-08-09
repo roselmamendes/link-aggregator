@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Tags from './Tags';
+import RSSFeed from './RSSFeed';
 import request from 'superagent';
-
+const posts = [{'title': 'primeiro post'}, {'title': 'segundo post'}];
 class App extends Component {
 
   constructor(props) {
@@ -21,7 +22,8 @@ class App extends Component {
 
     return (
       <div>
-       <Tags tagsList={this.state.tagsList} />
+       {/* <Tags tagsList={this.state.tagsList} /> */}
+       <RSSFeed posts={posts} />
       </div>
     );
   }
