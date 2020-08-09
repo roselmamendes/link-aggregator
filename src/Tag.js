@@ -1,8 +1,8 @@
 import React from 'react';
-import Subheader from 'material-ui/Subheader';
-import {List, ListItem} from 'material-ui/List';
-import FontIcon from 'material-ui/FontIcon';
-import {Card, CardMedia, CardTitle} from 'material-ui/Card';
+import PropTypes from 'prop-types';
+import Icon from '@material-ui/core/Icon';
+import Card from '@material-ui/core/Card';
+import CardMedia from '@material-ui/core/CardMedia';
 
 class Tag extends React.Component {
 
@@ -36,9 +36,7 @@ class Tag extends React.Component {
       }
       return (
         <Card key={index} style={styles.card}>
-          <a href={link.url}><CardMedia
-            overlay={<CardTitle title={link.title}/>}
-          >
+          <a href={link.url}><CardMedia title={link.title}>
             <img style={styles.img} src={imgsrc}/>
           </CardMedia></a>
         </Card>
@@ -46,18 +44,18 @@ class Tag extends React.Component {
     });
 
     return (<div>
-      <Subheader style={styles.subheader}>{this.props.titleTag}</Subheader>
+      <div style={styles.subheader}>{this.props.titleTag}</div>
 
       {tagsCard}
 
-      <FontIcon className="material-icons">more_horiz</FontIcon>
+      <Icon>more_horiz</Icon>
     </div>);
   }
 }
 
 Tag.propTypes = {
-  titleTag: React.PropTypes.string.isRequired,
-  links: React.PropTypes.array.isRequired
+  titleTag: PropTypes.string.isRequired,
+  links: PropTypes.array.isRequired
 }
 
 export default Tag;

@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import Tags from './Tags';
 import request from 'superagent';
 
@@ -21,9 +20,9 @@ class App extends Component {
   render() {
 
     return (
-      <MuiThemeProvider>
+      <div>
        <Tags tagsList={this.state.tagsList} />
-      </MuiThemeProvider>
+      </div>
     );
   }
 

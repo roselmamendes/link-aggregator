@@ -18,6 +18,8 @@ Node
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
 2. Run `docker build -t link-agg .`
 
+Start the project locally `docker run --rm -p 3000:3000 -v ${PWD}:/usr/src/app -it link-agg npm run start`
+
 To stop the container run `docker stop link-agg && docker rm link-agg`
 
 To open a terminal from th container `docker run --rm -it link-agg /bin/bash`

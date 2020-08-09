@@ -1,6 +1,6 @@
 import React from 'react';
 import Tag from './Tag';
-import RaisedButton from 'material-ui/RaisedButton';
+import Button from '@material-ui/core/Button';
 
 class Tags extends React.Component {
   render() {
@@ -22,8 +22,8 @@ class Tags extends React.Component {
 
     return (
       <div style={style.tags}>
-        <RaisedButton style={style.button} label="Criar Tag" secondary={true}/>
-        <RaisedButton style={style.button} label="Adicionar link" secondary={true}/>
+        <Button style={style.button} color="secondary">Criar Tag</Button>
+        <Button style={style.button} color="secondary">Adicionar link</Button>
         {tagsList}
       </div>
     );

@@ -1,4 +1,4 @@
-export default [
+module.exports = [
   {
     'tag': 'Segurança',
     'links': [

@@ -1,8 +1,8 @@
-import express from 'express';
-import path from 'path';
+const express = require('express');
+const path = require('path');
 let app = express();
-import Crawler from './Crawler';
-import tags_list from './tags';
+const Crawler = require('./Crawler');
+const tags_list = require('./tags');
 
 app.use('/', express.static(path.join(__dirname, '../public')));
 

@@ -10,17 +10,23 @@ var config = {
     path: BUILD_DIR,
     filename: 'bundle.js'
   },
-
+  mode: 'development',
   module : {
-    loaders : [
+    rules : [
       {
         test : /\.jsx?/,
         include : APP_DIR,
-        loader : 'babel-loader'
+        exclude: '/node_modules/',
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: ['@babel/preset-env']
+          }
+        }
       },
       {
-        test: /\.css$/,
-        loader: "style-loader!css-loader"
+        test: /\.css$/i,
+        use: ['style-loader', 'css-loader'],
       }
     ]
   },

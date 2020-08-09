@@ -1,6 +1,6 @@
-import metafetch from 'metafetch';
+const metafetch = require('metafetch');
 
-export default class Crawler{
+module.exports = class Crawler{
 
   static promise_read_links(link){
     return new Promise((resolve, reject) => {
