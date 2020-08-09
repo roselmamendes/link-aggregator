@@ -1,22 +1,22 @@
 import React from 'react';
-import Card from '@material-ui/core/Card';
-import CardContent from '@material-ui/core/CardContent';
+import style from './style.css';
 
 function RSSFeed(props) {
     const buildPostList = props.posts.map((element, index) => {
             return (
-                <Card key={index}>
-                    <CardContent>
-                        {element['title']}
-                    </CardContent>
-                </Card>
+                <li key={index}>
+                    <a href={element['link']}> {element['title']}</a>
+                </li>
             )
         }
     )
     
     return (
-        <div>
-            {buildPostList}
+        <div className='feed'>
+            <h1>RSS Feed</h1>
+            <ul className='feedList'>
+                {buildPostList}
+            </ul>
         </div>
     );
 }

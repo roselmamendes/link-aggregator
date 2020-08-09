@@ -2,7 +2,10 @@ import React, { Component } from 'react';
 import Tags from './Tags';
 import RSSFeed from './RSSFeed';
 import request from 'superagent';
-const posts = [{'title': 'primeiro post'}, {'title': 'segundo post'}];
+const posts = [
+  {'title': 'primeiro post', 'link': 'https://material-ui.com/components/cards/'}, 
+  {'title': 'segundo post', 'link': 'https://docs.travis-ci.com/user/languages/javascript-with-nodejs/'}
+];
 class App extends Component {
 
   constructor(props) {

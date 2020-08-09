@@ -1,0 +1,22 @@
+@import url('https://fonts.googleapis.com/css2?family=Slabo+27px&display=swap');
+
+.feed{
+    margin: 0 auto;
+    width: 400px;
+    background-color: bisque;
+    padding: 10px 0 10px 10px;
+    border-radius: 5px;
+    font-family:  'Slabo 27px', serif;
+}
+
+.feedList{
+    list-style-type: none;
+}
+
+.feedList li{
+    margin-bottom: 10px;
+}
+
+.feedList a{
+    text-decoration: none;
+}

@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "../node_modules/.bin/webpack && node server/app.js",
+    "buildWatch": "../node_modules/.bin/webpack -w",
     "server": "node server/app.js",
     "build": "../node_modules/.bin/webpack",
     "build-image": "docker build -t link-agg .",
@@ -16,6 +16,7 @@
   "license": "ISC",
   "devDependencies": {
     "jest": "26.2.2",
+    "babel-jest": "26.2.2",
     "chai": "4.2.0",
     "enzyme": "3.11.0",
     "enzyme-adapter-react-16": "1.15.3",
@@ -39,6 +40,10 @@
     "superagent": "5.3.1"
   },
   "jest": {
-    "setupFilesAfterEnv": ["./src/setupTests.js"]
+    "setupFilesAfterEnv": ["./src/setupTests.js"],
+    "transform": {
+      "\\.(js|css)$": "../node_modules/babel-jest"
+    }
   }
+  
 }
