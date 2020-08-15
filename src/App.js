@@ -25,7 +25,7 @@ class App extends Component {
 
     return (
       <div>
-       {/* <Tags tagsList={this.state.tagsList} /> */}
+       <Tags tagsList={this.state.tagsList} />
        <RSSFeed posts={posts} />
       </div>
     );
