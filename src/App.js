@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
 import Tags from './Tags';
 import RSSFeed from './RSSFeed';
-import request from 'superagent';
+import getTagList from './AppService';
+
 const posts = [
   {'title': 'primeiro post', 'link': 'https://material-ui.com/components/cards/'}, 
   {'title': 'segundo post', 'link': 'https://docs.travis-ci.com/user/languages/javascript-with-nodejs/'}
@@ -14,11 +15,7 @@ class App extends Component {
   }
 
   componentDidMount() {
-    request
-      .get('http://localhost:3000/tags-list')
-      .end((error, response) => {
-        this.setState({tagsList: response.body});
-      });
+    this.setState({tagsList: getTagList()});
   }
 
   render() {
