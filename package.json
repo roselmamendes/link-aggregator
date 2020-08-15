@@ -41,8 +41,8 @@
   },
   "jest": {
     "setupFilesAfterEnv": ["./src/setupTests.js"],
-    "transform": {
-      "\\.(js|css)$": "../node_modules/babel-jest"
+    "moduleNameMapper":{
+      "^.+\\.(css|less)$": "<rootDir>/src/stubCss.js"
     }
   }
   
