@@ -16,7 +16,7 @@ class Tag extends React.Component {
 
     return (
       <div>
-        <div className="tagName">{this.props.titleTag}</div>
+        <div className="tagName">#{this.props.titleTag}</div>
         <ul>
           {tagsCard}
         </ul>

@@ -17,7 +17,7 @@ it('should show for each group of tags a title', () => {
   const link = [{"url": "https://link.com", "title": "a title", "image": "https://image.com"}];
   const tag = shallow(<Tag titleTag="Segurança" links={link}></Tag>);
 
-  expect(tag.find('.tagName').get(0).props.children).to.equal('Segurança');
+  expect(tag.text()).to.contain('#Segurança');
 });
 
 it('should render just 3 links even the list come with more than 3', () => {
