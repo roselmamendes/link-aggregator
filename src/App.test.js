@@ -9,7 +9,7 @@ jest.mock('./AppService');
 import getTagList from './AppService';
 
 it('should render a Tags component', () => {
-  getTagList.mockImplementation(() => []);
+  getTagList.mockResolvedValue([]);
   const app = shallow(<App></App>);
 
   expect(app.find(Tags)).to.have.length(1);
