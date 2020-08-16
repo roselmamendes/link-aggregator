@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
-import Tags from './Tags';
-import RSSFeed from './RSSFeed';
+import Tags from '../links/Tags';
+import RSSFeed from '../rssFeed/RSSFeed';
 import getTagList from './AppService';
-import style from './style.css';
+import style from '../style.css';
 
 const posts = [
   {'title': 'primeiro post', 'link': 'https://material-ui.com/components/cards/'}, 

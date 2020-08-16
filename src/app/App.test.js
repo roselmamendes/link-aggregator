@@ -1,9 +1,9 @@
 import React from 'react';
 import {shallow} from 'enzyme';
 import App from './App';
-import Tags from './Tags';
+import Tags from '../links/Tags';
 import { expect } from 'chai';
-import RSSFeed from './RSSFeed';
+import RSSFeed from '../rssFeed/RSSFeed';
 
 jest.mock('./AppService');
 import getTagList from './AppService';
