@@ -4,7 +4,7 @@ import Tags from './Tags';
 import Tag from './Tag';
 import { expect } from 'chai';
 
-xit('should render a empty list of Tag component', () => {
+it('should render a empty list of Tag component', () => {
   const tagsList = [];
   const tags = shallow(<Tags tagsList={tagsList}/>);
 
@@ -12,7 +12,7 @@ xit('should render a empty list of Tag component', () => {
 
 });
 
-xit('should render a list of Tag component', () => {
+it('should render a list of Tag component', () => {
   const tagsList = [
     {
       "title": "Segurança",
@@ -32,23 +32,11 @@ xit('should render a list of Tag component', () => {
 
   expect(tags.find(Tag)).to.have.length(2);
 
-  const tag1 = tags.find(Tag).nodes[0];
+  const tag1 = tags.find(Tag).get(0);
   expect(tag1.props.titleTag).to.equal('Segurança');
   expect(tag1.props.links).to.have.length(1);
 
-  const tag2 = tags.find(Tag).nodes[1];
+  const tag2 = tags.find(Tag).get(1);
   expect(tag2.props.titleTag).to.equal('Clean Architecture');
   expect(tag2.props.links).to.have.length(2);
-});
-
-xit('should have a Criar Tag button', () => {
-  const tags_comp = shallow(<Tags tagsList={[]}/>);
-
-  expect(tags_comp.find('RaisedButton').nodes[0].props.label).to.equal('Criar Tag');
-});
-
-xit('should have a Adicionar link button', () => {
-  const tags_comp = shallow(<Tags tagsList={[]}/>);
-
-  expect(tags_comp.find('RaisedButton').nodes[1].props.label).to.equal('Adicionar link');
 });

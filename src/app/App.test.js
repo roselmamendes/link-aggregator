@@ -12,6 +12,8 @@ it('should render a Tags component', () => {
   getTagList.mockResolvedValue([]);
   const app = shallow(<App></App>);
 
+  expect(app.text()).to.contain('Criar Tag');
+  expect(app.text()).to.contain('Adicionar Link');
   expect(app.find(Tags)).to.have.length(1);
   expect(app.find(RSSFeed)).to.have.length(1);
 });

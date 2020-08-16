@@ -28,7 +28,7 @@ class App extends Component {
       <div className='app'>
         <div className='menu'>
           <a className="buttonMenu">Criar Tag</a>
-          <a className="buttonMenu">Adicionar link</a>
+          <a className="buttonMenu">Adicionar Link</a>
         </div>
         <Tags tagsList={this.state.tagsList} />
         <RSSFeed posts={posts} />
