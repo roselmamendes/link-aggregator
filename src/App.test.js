@@ -15,3 +15,7 @@ it('should render a Tags component', () => {
   expect(app.find(Tags)).to.have.length(1);
   expect(app.find(RSSFeed)).to.have.length(1);
 });
+
+it('should deal with error from tag endpoint', () => {
+  
+});

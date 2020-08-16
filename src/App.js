@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Tags from './Tags';
 import RSSFeed from './RSSFeed';
 import getTagList from './AppService';
+import style from './style.css';
 
 const posts = [
   {'title': 'primeiro post', 'link': 'https://material-ui.com/components/cards/'}, 
@@ -15,15 +16,22 @@ class App extends Component {
   }
 
   componentDidMount() {
-    this.setState({tagsList: getTagList()});
+    getTagList().then((tagsList) => {
+      this.setState({tagsList: tagsList});
+    });
+    
   }
 
   render() {
 
     return (
-      <div>
-       <Tags tagsList={this.state.tagsList} />
-       <RSSFeed posts={posts} />
+      <div className='app'>
+        <div className='menu'>
+          <a className="buttonMenu">Criar Tag</a>
+          <a className="buttonMenu">Adicionar link</a>
+        </div>
+        <Tags tagsList={this.state.tagsList} />
+        <RSSFeed posts={posts} />
       </div>
     );
   }

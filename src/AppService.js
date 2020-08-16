@@ -1,9 +1,9 @@
 import request from 'superagent';
 
-module.exports = function (){
+export default function (){
     return request
       .get('http://localhost:3000/tags-list')
-      .end((error, response) => {
+      .then((response) => {
         return response.body;
       });
 }

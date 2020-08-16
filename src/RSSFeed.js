@@ -1,5 +1,4 @@
 import React from 'react';
-import style from './style.css';
 
 function RSSFeed(props) {
     const buildPostList = props.posts.map((element, index) => {

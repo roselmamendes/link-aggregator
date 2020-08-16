@@ -7,49 +7,24 @@ import CardMedia from '@material-ui/core/CardMedia';
 class Tag extends React.Component {
 
   render() {
-    const styles = {
-      subheader: {
-        color: '#9C27B0',
-        fontSize: 30,
-        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
-      },
-      titleStyle: {
-        color: 'rgba(243, 249, 243, 0.95)',
-        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
-      },
-      listitem: {
-        fontFamily: 'Lucida Sans Unicode, Lucida Grande, sans-serif'
-      },
-      card:{
-        marginBottom: 20
-      },
-      img: {
-        width: 250,
-        height: 300
-      }
-    };
-
     const tagsCard = this.props.links.slice(0, 3).map((link, index) => {
-      var imgsrc = 'https://developers.google.com/web/images/content-https-2x.jpg';
-      if(link.image){
-        imgsrc = link.image;
-      }
+     
       return (
-        <Card key={index} style={styles.card}>
-          <a href={link.url}><CardMedia title={link.title}>
-            <img style={styles.img} src={imgsrc}/>
-          </CardMedia></a>
-        </Card>
+        <li key={index} className="link">
+          <a href={link.url}>{link.title}</a>
+        </li>
       );
     });
 
-    return (<div>
-      <div style={styles.subheader}>{this.props.titleTag}</div>
-
-      {tagsCard}
-
-      <Icon>more_horiz</Icon>
-    </div>);
+    return (
+      <div>
+        <div className="tagName">{this.props.titleTag}</div>
+        <ul>
+          {tagsCard}
+        </ul>
+        <Icon>more_horiz</Icon>
+      </div>
+    );
   }
 }
 

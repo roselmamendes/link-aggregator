@@ -18,7 +18,9 @@ Node
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
 2. Run `docker build -t link-agg .`
 
-Start the project locally `docker run --rm -p 3000:3000 -v ${PWD}:/usr/src/app -it link-agg npm run start`
+Run Webpack in watch mode (build the public folder) `sudo docker run --rm -v ${PWD}:/usr/src/app -it link-agg ../node_modules/.bin/webpack --watch`
+
+Start the project locally `docker run --rm -p 3000:3000 -v ${PWD}:/usr/src/app -it link-agg npm run server`
 
 To stop the container run `docker stop link-agg && docker rm link-agg`
 
