@@ -7,10 +7,7 @@
     "buildWatch": "../node_modules/.bin/webpack -w",
     "server": "node server/app.js",
     "build": "../node_modules/.bin/webpack",
-    "build-image": "docker build -t link-agg .",
-    "start-container": "docker run --rm -p 3000:3000 -v ${PWD}:/usr/src/app -it link-agg npm run start",
-    "console": "npm run build-image && docker run --rm -it link-agg /bin/bash",
-    "test": "docker run --rm -it link-agg ./node_modules/.bin/jest"
+    "test": "../node_modules/.bin/jest"
   },
   "author": "Roselma Mendes",
   "license": "ISC",
