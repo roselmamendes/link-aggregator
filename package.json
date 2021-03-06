@@ -15,12 +15,11 @@
   "author": "Roselma Mendes",
   "license": "ISC",
   "devDependencies": {
-    "jest": "26.2.2",
-    "babel-jest": "26.2.2",
-    "chai": "4.2.0",
-    "enzyme": "3.11.0",
-    "enzyme-adapter-react-16": "1.15.3",
-    "sinon": "9.0.2"
+    "jest": "26.4.2",
+    "babel-jest": "26.3.0",
+    "@testing-library/react": "11.2.5",
+    "@testing-library/jest-dom": "5.11.9",
+    "@babel/plugin-transform-runtime":"7.13.9"
   },
   "dependencies": {
     "express": "4.17.1",
@@ -40,7 +39,7 @@
     "superagent": "5.3.1"
   },
   "jest": {
-    "setupFilesAfterEnv": ["./src/setupTests.js"],
+    "setupFilesAfterEnv": ["<rootDir>/src/setupTests.js"],
     "moduleNameMapper":{
       "^.+\\.(css|less)$": "<rootDir>/src/stubCss.js"
     }

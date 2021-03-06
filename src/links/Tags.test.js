@@ -1,18 +1,16 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Tags from './Tags';
-import Tag from './Tag';
-import { expect } from 'chai';
 
-it('should render a empty list of Tag component', () => {
+test('should render a empty list of Tag component', () => {
   const tagsList = [];
-  const tags = shallow(<Tags tagsList={tagsList}/>);
+  
+  render(<Tags tagsList={tagsList}/>);
 
-  expect(tags.find(Tag)).to.have.length(0);
-
+  expect(screen.getByText("Links Adicionados")).toBeInTheDocument();
 });
 
-it('should render a list of Tag component', () => {
+test('should render a list of Tag component', () => {
   const tagsList = [
     {
       "title": "Segurança",
@@ -28,15 +26,10 @@ it('should render a list of Tag component', () => {
         ]
     }
   ];
-  const tags = shallow(<Tags tagsList={tagsList}/>);
 
-  expect(tags.find(Tag)).to.have.length(2);
+  render(<Tags tagsList={tagsList}/>);
 
-  const tag1 = tags.find(Tag).get(0);
-  expect(tag1.props.titleTag).to.equal('Segurança');
-  expect(tag1.props.links).to.have.length(1);
-
-  const tag2 = tags.find(Tag).get(1);
-  expect(tag2.props.titleTag).to.equal('Clean Architecture');
-  expect(tag2.props.links).to.have.length(2);
+  expect(screen.getByText("#Segurança")).toBeInTheDocument();
+  expect(screen.getByText("#Clean Architecture")).toBeInTheDocument();
+  
 });

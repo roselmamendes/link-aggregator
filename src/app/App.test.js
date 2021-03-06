@@ -1,23 +1,38 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { render, screen, waitFor } from '@testing-library/react';
 import App from './App';
-import Tags from '../links/Tags';
-import { expect } from 'chai';
-import RSSFeed from '../rssFeed/RSSFeed';
-
+import {getTagList, getRSSFeed} from './AppService';
 jest.mock('./AppService');
-import getTagList from './AppService';
 
-it('should render a Tags component', () => {
+test('should render a App component', async () => {
   getTagList.mockResolvedValue([]);
-  const app = shallow(<App></App>);
+  getRSSFeed.mockResolvedValue([]);
 
-  expect(app.text()).to.contain('Criar Tag');
-  expect(app.text()).to.contain('Adicionar Link');
-  expect(app.find(Tags)).to.have.length(1);
-  expect(app.find(RSSFeed)).to.have.length(1);
+  await waitFor(() => render(<App></App>) );
+  
+  expect(screen.getByText('Criar Tag')).toBeInTheDocument();
+  expect(screen.getByText('Adicionar Link')).toBeInTheDocument();
 });
 
-it('should deal with error from tag endpoint', () => {
+test('should render a Tags component', async () => {
+  getTagList.mockResolvedValue([]);
+  getRSSFeed.mockResolvedValue([]);
+
+  await waitFor(() => render(<App></App>) );
+
+  expect(screen.getByText('Links Adicionados')).toBeInTheDocument();
+});
+
+test('should render RSS feed component', async () => {
+  getTagList.mockResolvedValue([]);
+  getRSSFeed.mockResolvedValue([{'title': 'primeiro-titulo', 'link': 'http:link1'}]);
+  
+  await waitFor(() => render(<App></App>) );
+
+  expect(screen.getByText('RSS Feed')).toBeInTheDocument();
+  expect(screen.getByText('primeiro-titulo')).toBeInTheDocument(); 
+});
+
+xtest('should deal with error from tag endpoint', () => {
   
 });

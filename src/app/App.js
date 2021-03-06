@@ -1,40 +1,32 @@
-import React, { Component } from 'react';
+import React, { Component, useState, useEffect } from 'react';
 import Tags from '../links/Tags';
 import RSSFeed from '../rssFeed/RSSFeed';
-import getTagList from './AppService';
+import {getRSSFeed, getTagList} from './AppService';
 import style from '../style.css';
 
-const posts = [
-  {'title': 'primeiro post', 'link': 'https://material-ui.com/components/cards/'}, 
-  {'title': 'segundo post', 'link': 'https://docs.travis-ci.com/user/languages/javascript-with-nodejs/'}
-];
-class App extends Component {
+const App = (props) => {
+  const [tagList, setTagList] = useState([]);
+  const [rssFeed, setRssFeed] = useState([]);
 
-  constructor(props) {
-    super(props);
-    this.state = {tagsList: []};
-  }
-
-  componentDidMount() {
-    getTagList().then((tagsList) => {
-      this.setState({tagsList: tagsList});
+  useEffect(() =>{
+    getTagList().then((response) => {
+      setTagList(response);
     });
+
+    getRSSFeed().then((response) => { setRssFeed(response)});
     
-  }
+  });
 
-  render() {
-
-    return (
-      <div className='app'>
-        <div className='menu'>
-          <a className="buttonMenu">Criar Tag</a>
-          <a className="buttonMenu">Adicionar Link</a>
-        </div>
-        <Tags tagsList={this.state.tagsList} />
-        <RSSFeed posts={posts} />
+  return (
+    <div className='app'>
+      <div className='menu'>
+        <a className="buttonMenu">Criar Tag</a>
+        <a className="buttonMenu">Adicionar Link</a>
       </div>
-    );
-  }
+      <Tags tagsList={tagList} />
+      <RSSFeed posts={rssFeed} />
+    </div>
+  );
 
 }
 

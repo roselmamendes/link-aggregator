@@ -11,7 +11,7 @@ case $parametro in
     ;;
 
   test)
-    docker run --rm -v ${PWD}:/usr/src/app -it link-agg ../node_modules/.bin/jest
+    docker run --rm -v ${PWD}:/usr/src/app -it link-agg ../node_modules/.bin/jest $2
     ;;
 
   *)

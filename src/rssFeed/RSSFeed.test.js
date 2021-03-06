@@ -1,13 +1,12 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import RSSFeed from './RSSFeed';
-import { expect } from 'chai';
 
-it('should render RSSFeed', () => {
+test('should render RSSFeed', () => {
   const posts = [{'title': 'primeiro post'}, {'title': 'segundo post'}];
-  const feed = shallow(<RSSFeed posts={posts}></RSSFeed>);
+  render(<RSSFeed posts={posts}></RSSFeed>);
   
-  expect(feed.text()).to.contains('RSS Feed');
-  expect(feed.text()).to.contains('primeiro post');
-  expect(feed.text()).to.contains('segundo post');
+  expect(screen.getByText('RSS Feed')).toBeInTheDocument();
+  expect(screen.getByText('primeiro post')).toBeInTheDocument();
+  expect(screen.getByText('segundo post')).toBeInTheDocument();
 });

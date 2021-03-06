@@ -1,33 +1,32 @@
 import React from 'react';
-import {shallow} from 'enzyme';
+import { render, screen } from '@testing-library/react';
 import Tag from './Tag';
-import { expect } from 'chai';
 
-it('should render the link information on a component Tag', () => {
+test('should render the link information on a component Tag', () => {
   const links = [{"url": "https://link.com", "title": "a title", "image": "https://image.com"}];
-  const tag = shallow(<Tag titleTag="Segurança" links={links}></Tag>);
+  render(<Tag titleTag="Segurança" links={links}></Tag>);
 
-  expect(tag.find('li')).to.have.length(1);
-
-  const tagA = tag.find('li > a').get(0);
-  expect(tagA.props.href).to.equal(links[0].url);
+  expect(screen.getByText('#Segurança')).toBeInTheDocument();
 });
 
-it('should show for each group of tags a title', () => {
+test('should show for each group of tags a title', () => {
   const link = [{"url": "https://link.com", "title": "a title", "image": "https://image.com"}];
-  const tag = shallow(<Tag titleTag="Segurança" links={link}></Tag>);
 
-  expect(tag.text()).to.contain('#Segurança');
+  render(<Tag titleTag="Segurança" links={link}></Tag>);
+
+  expect(screen.getByText("a title")).toBeInTheDocument();
 });
 
-it('should render just 3 links even the list come with more than 3', () => {
+test('should render just 3 links even the list come with more than 3', () => {
   const links = [
     {"url": "https://link.com", "title": "a title", "image": "https://image.com"},
-    {"url": "https://link.com", "title": "a title", "image": "https://image.com"},
-    {"url": "https://link.com", "title": "a title", "image": "https://image.com"},
-    {"url": "https://link.com", "title": "a title", "image": "https://image.com"},
+    {"url": "https://link.com", "title": "a title 2", "image": "https://image.com"},
+    {"url": "https://link.com", "title": "a title 3", "image": "https://image.com"},
+    {"url": "https://link.com", "title": "a title 4", "image": "https://image.com"},
   ];
-  const tag = shallow(<Tag titleTag="Segurança" links={links}></Tag>);
 
-  expect(tag.find('li')).to.have.length(3);
+  render(<Tag titleTag="Segurança" links={links}></Tag>);
+
+  const componenteLink = screen.queryByText("a title 4");
+  expect(componenteLink).not.toBeInTheDocument();
 });
