@@ -16,11 +16,11 @@ Node
 **Start in your machine**
 
 1. Git clone git@github.com:roselmamendes/link-aggregator.git
-2. Run `docker build -t link-agg .`
+2. Run `scripts/linkagg build-image`
 
 Run Webpack in watch mode (build the public folder) `sudo docker run --rm -v ${PWD}:/usr/src/app -it link-agg ../node_modules/.bin/webpack --watch`
 
-Start the project locally `docker run --rm -p 3000:3000 -v ${PWD}:/usr/src/app -it link-agg npm run server`
+Start the project locally `sh scripts/linkagg start`
 
 To stop the container run `docker stop link-agg && docker rm link-agg`
 
@@ -30,5 +30,5 @@ To open a terminal from th container `docker run --rm -it link-agg /bin/bash`
 
 **Tests**
 
-`docker run --rm -v ${PWD}:/usr/src/app -it link-agg ./node_modules/.bin/jest`
+`sh scripts/linkagg test`
 
