@@ -7,8 +7,9 @@ const tags_list = require('./tags');
 app.use('/', express.static(path.join(__dirname, '../public')));
 
 app.get('/tags-list', (req, res, next) => {
-  var tags_to_treat =JSON.parse(JSON.stringify(tags_list));;
-  Promise.all(Crawler.build_tag_links(tags_to_treat)).then((tags) => {
+  var tags_to_treat =JSON.parse(JSON.stringify(tags_list));
+  var tagsAndLinksPromises = Crawler.build_tag_links(tags_to_treat);
+  Promise.all(tagsAndLinksPromises).then((tags) => {
     var tags_json = tags.map((tag) => {
       return {
         'title': tag.tag,

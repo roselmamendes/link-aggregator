@@ -15,7 +15,7 @@ const App = (props) => {
 
     getRSSFeed().then((response) => { setRssFeed(response)});
     
-  });
+  }, []);
 
   return (
     <div className='app'>
